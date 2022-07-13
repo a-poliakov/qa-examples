@@ -1,6 +1,6 @@
 package org.example;
 
 public class User {
-    String name;
-    Integer age;
+  String name;
+  Integer age;
 }

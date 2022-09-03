@@ -22,12 +22,15 @@ public class ProfilePage {
     /**
      * определение локатора меню пользователя
      */
-    @FindBy(xpath = "//*[contains(@class, 'account__name_hasAccentLetter')]")
+    @FindBy(xpath = "//*[contains(@class, 'personal-info-login__text_decorated')]")
+    private WebElement userText;
+
+    @FindBy(xpath = "//*[contains(@class, 'user-pic__image')]")
     private WebElement userMenu;
     /**
      * определение локатора кнопки выхода из аккаунта
      */
-    @FindBy(xpath = "//*[contains(@class, 'menu-item_action_exit menu__item menu__item_type_link')]")
+    @FindBy(xpath = "//*[contains(@class,'legouser__menu-item_action_exit')]")
     private WebElement logoutBtn;
 
     /**
@@ -35,8 +38,8 @@ public class ProfilePage {
      */
     public String getUserName() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, 'account__name_hasAccentLetter')]")));
-        String userName = userMenu.getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, 'personal-info-login__text_decorated')]")));
+        String userName = userText.getText();
         return userName; }
 
     /**
